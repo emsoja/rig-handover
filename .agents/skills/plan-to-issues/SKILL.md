@@ -30,6 +30,32 @@ Closing one, with the closing comment from AGENTS.md:
 gh issue close <n> -c "<closing comment>"
 ```
 
+## Issue shape
+
+What every issue here carries (decided by the human in review of plan morning-digest, 2026-11-12).
+Step 4 does not need to ask again unless the plan asks for more.
+
+- Label: `plan:<plan name from plan.md frontmatter>`, e.g. `plan:morning-digest`.
+- Body, in this order:
+
+  ```md
+  Source: plan.md § <n>
+
+  ## Scope
+  <what to build, from that section; the ADRs and rules it touches>
+
+  ## Done when
+  <the section's "Done when", checkable>
+
+  ## Blocked by
+  <#n, or — ; say when only part of #n is needed>
+  ```
+
+- One issue per plan section. A section that says "commit X first" stays one issue; the
+  blocked issues say "only its X commit".
+- Steps that wait on someone outside the lane (a reviewer, a host) are their own issue and
+  block the steps after them; they close only when that side has answered.
+
 ## No `gh`
 
 Steps 1–4 hold either way. GitHub reachable another way (a connector, the REST API, the web UI):
